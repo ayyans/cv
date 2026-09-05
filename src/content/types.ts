@@ -81,7 +81,7 @@ export interface ExperienceEntry {
   end: string | null;
   /** 1–2 outcome bullets, verb-led, max ~14 words each */
   bullets: string[];
-  /** Optional location, e.g. "Remote" or "Algiers, Algeria" */
+  /** Optional location, e.g. "Remote" or "Tunisia" */
   location?: string;
 }
 

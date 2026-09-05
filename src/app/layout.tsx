@@ -78,7 +78,7 @@ const jsonLd = {
   email: `mailto:${profile.email}`,
   address: {
     "@type": "PostalAddress",
-    addressLocality: profile.location,
+    addressCountry: profile.location,
   },
   knowsLanguage: profile.languages,
   sameAs: profile.socials

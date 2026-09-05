@@ -19,14 +19,14 @@ export const profile: Profile = {
   roles: ["Full-Stack Developer", "Project Manager"],
   tagline:
     "I build products end-to-end and ship them on time — from first commit to launch day.",
-  location: "Algiers, Algeria",
+  location: "Tunisia",
   languages: ["English", "French", "Arabic"],
-  yearsOfExperience: 6,
+  yearsOfExperience: 9,
   focusAreas: ["Web Apps", "SaaS", "Internal Tools", "API Platforms"],
   bio:
     "I spend my days writing code in the morning and running projects in the afternoon. " +
     "I care about shipping software that people actually use, on schedules that don't slip. " +
-    "Over the last six years I've worked across the stack — TypeScript and React on the front, " +
+    "Over the last nine years I've worked across the stack — TypeScript and React on the front, " +
     "Node and Postgres on the back, Kubernetes in production — and led cross-functional teams " +
     "to deliver it.",
   availableForWork: true,
@@ -158,7 +158,7 @@ export const experience: ExperienceEntry[] = [
     company: "Northstar Digital",
     start: "2021-06",
     end: "2023-12",
-    location: "Algiers, Algeria (Hybrid)",
+    location: "Tunisia (Hybrid)",
     bullets: [
       "Owned delivery for a 5-person squad building a customer portal; 96% on-time sprint rate.",
       "Designed and shipped the auth + billing surfaces, handling 50k+ monthly active users.",
@@ -170,7 +170,7 @@ export const experience: ExperienceEntry[] = [
     company: "Brightline Studio",
     start: "2019-09",
     end: "2021-05",
-    location: "Algiers, Algeria",
+    location: "Tunisia",
     bullets: [
       "Built marketing sites and small web apps for 12+ clients across retail, education, and finance.",
       "Introduced TypeScript and automated testing to a team that had neither before.",
