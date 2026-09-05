@@ -1,0 +1,40 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+
+# Build artifacts
+.next
+out
+build
+dist
+
+# Local logs
+*.log
+start.log.err
+
+# Env
+.env
+.env*.local
+!.env.example
+
+# Tests
+coverage
+.vitest-cache
+
+# Editors
+.vscode
+.idea
+*.swp
+.DS_Store
+Thumbs.db
+
+# Git
+.git
+.gitignore
+
+# Docs (not needed in image)
+docs
+README.md
