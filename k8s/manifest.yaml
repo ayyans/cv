@@ -21,6 +21,8 @@ spec:
       labels:
         app: yeddes-com
     spec:
+      imagePullSecrets:
+        - name: ghcr
       containers:
         - name: app
           image: ghcr.io/ayyans/cv:IMAGE_TAG_PLACEHOLDER
@@ -88,7 +90,6 @@ spec:
       sectionName: https-yeddes
   hostnames:
     - yeddes.com
-    - www.yeddes.com
   rules:
     - matches:
         - path:

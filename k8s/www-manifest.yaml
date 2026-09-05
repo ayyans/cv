@@ -1,0 +1,26 @@
+---
+# www.yeddes.com — uses the WILDCARD section, not the apex section.
+# Same backend as the apex route; only the gateway listener differs.
+
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: yeddes-com-www
+  namespace: yeddes
+  labels:
+    app: yeddes-com
+spec:
+  parentRefs:
+    - name: softdigitaledge
+      namespace: softdigitaledge
+      sectionName: https-yeddes-wildcard
+  hostnames:
+    - www.yeddes.com
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: yeddes-com
+          port: 80
