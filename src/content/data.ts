@@ -11,32 +11,53 @@ import type {
  * ║  EDIT THIS FILE to make the portfolio yours.                    ║
  * ║  Everything the site displays lives here — no code required.    ║
  * ╚══════════════════════════════════════════════════════════════════╝
+ *
+ * Content source: Mohamed-Ayman-Yeddes-CV.docx (extracted 2026-09-06).
  */
 
 export const profile: Profile = {
-  name: "Ayman Yeddes",
+  name: "Mohamed Ayman Yeddes",
   shortName: "Ayman",
-  roles: ["Full-Stack Developer", "Project Manager"],
+  roles: ["Full-Stack Developer", "IT Project Manager"],
   tagline:
-    "I build products end-to-end and ship them on time — from first commit to launch day.",
+    "I build ERP, POS, e-commerce and B2B systems end-to-end — from the database layer to the deployed server.",
   location: "Tunisia",
-  languages: ["English", "French", "Arabic"],
+  languages: ["Arabic", "English", "French"],
   yearsOfExperience: 9,
-  focusAreas: ["Web Apps", "SaaS", "Internal Tools", "API Platforms"],
+  focusAreas: [
+    "ERP & Business Apps",
+    "POS & Inventory",
+    "E-commerce & B2B",
+    "Workflow Automation",
+    "Team Leadership",
+  ],
   bio:
-    "I spend my days writing code in the morning and running projects in the afternoon. " +
-    "I care about shipping software that people actually use, on schedules that don't slip. " +
-    "Over the last nine years I've worked across the stack — TypeScript and React on the front, " +
-    "Node and Postgres on the back, Kubernetes in production — and led cross-functional teams " +
-    "to deliver it.",
+    "I'm a full-stack engineer with 9+ years building production business software — " +
+    "ERP, invoicing, POS, e-commerce, and B2B platforms — from the database layer " +
+    "through to deployment. Twice I've joined a company as its first engineer, " +
+    "built the IT function from zero, hired and led the team, and replaced " +
+    "paper-based operations with automated systems. I work end-to-end: scoping " +
+    "requirements with clients, architecting the solution, writing the code, and " +
+    "shipping it across web, desktop, and mobile.",
   availableForWork: true,
-  initials: "AY",
-  email: "hello@yeddes.com",
+  initials: "MAY",
+  email: "Mohamed.ayman.yeddes@gmail.com",
   socials: [
-    { label: "GitHub", icon: "Github", url: "https://github.com/" },
-    { label: "LinkedIn", icon: "Linkedin", url: "https://linkedin.com/in/" },
-    { label: "X (Twitter)", icon: "Twitter", url: "https://x.com/" },
-    { label: "Email", icon: "Mail", url: "mailto:hello@yeddes.com" },
+    {
+      label: "LinkedIn",
+      icon: "Linkedin",
+      url: "https://linkedin.com/in/mohamed-ayman-yeddes",
+    },
+    {
+      label: "GitHub",
+      icon: "Github",
+      url: "https://github.com/ayyans",
+    },
+    {
+      label: "Email",
+      icon: "Mail",
+      url: "mailto:Mohamed.ayman.yeddes@gmail.com",
+    },
   ],
 };
 
@@ -44,7 +65,7 @@ export const quickFacts: QuickFact[] = [
   { label: "Years of experience", value: `${profile.yearsOfExperience}+` },
   { label: "Location", value: profile.location },
   { label: "Languages", value: profile.languages.join(" · ") },
-  { label: "Focus", value: "Web · SaaS · APIs" },
+  { label: "Focus", value: "ERP · POS · E-commerce" },
 ];
 
 export const stack: StackCategory[] = [
@@ -52,22 +73,32 @@ export const stack: StackCategory[] = [
     id: "frontend",
     label: "Frontend",
     items: [
-      { name: "TypeScript", icon: "FileCode" },
-      { name: "React", icon: "Atom" },
-      { name: "Next.js", icon: "Triangle" },
-      { name: "Tailwind CSS", icon: "Palette" },
-      { name: "Framer Motion", icon: "Sparkles" },
+      { name: "HTML", icon: "FileCode" },
+      { name: "CSS", icon: "Palette" },
+      { name: "JavaScript", icon: "FileCode" },
+      { name: "jQuery", icon: "FileCode" },
+      { name: "Dart", icon: "Code2" },
+      { name: "Flutter", icon: "Smartphone" },
+      { name: "WordPress", icon: "Globe" },
+      { name: "WooCommerce", icon: "ShoppingCart" },
+      { name: "PrestaShop", icon: "ShoppingBag" },
+      { name: "Drupal", icon: "Layers" },
+      { name: "Shopify", icon: "ShoppingBag" },
     ],
   },
   {
     id: "backend",
     label: "Backend",
     items: [
-      { name: "Node.js", icon: "Server" },
-      { name: "PostgreSQL", icon: "Database" },
-      { name: "Prisma", icon: "Layers" },
-      { name: "tRPC / REST", icon: "Plug" },
-      { name: "Redis", icon: "Zap" },
+      { name: "PHP", icon: "Code2" },
+      { name: "Laravel", icon: "Triangle" },
+      { name: "CodeIgniter", icon: "Code2" },
+      { name: "Java", icon: "Coffee" },
+      { name: "C#", icon: "Hash" },
+      { name: "WLanguage", icon: "Code2" },
+      { name: "SQL Server", icon: "Database" },
+      { name: "MySQL", icon: "Database" },
+      { name: "HFSQL", icon: "Database" },
     ],
   },
   {
@@ -75,105 +106,129 @@ export const stack: StackCategory[] = [
     label: "Infra & DevOps",
     items: [
       { name: "Docker", icon: "Container" },
-      { name: "Kubernetes", icon: "Boxes" },
-      { name: "AWS", icon: "Cloud" },
-      { name: "Vercel", icon: "Rocket" },
-      { name: "GitHub Actions", icon: "Workflow" },
+      { name: "Git", icon: "GitBranch" },
+      { name: "cPanel", icon: "Server" },
+      { name: "Microsoft Azure", icon: "Cloud" },
+      { name: "WinDev", icon: "AppWindow" },
+      { name: "WinDev Mobile", icon: "Smartphone" },
     ],
   },
   {
     id: "pm",
-    label: "PM & Collaboration",
+    label: "PM & Tools",
     items: [
-      { name: "Linear", icon: "ListChecks" },
-      { name: "Notion", icon: "NotebookPen" },
-      { name: "Figma", icon: "PenTool" },
-      { name: "Slack", icon: "MessageSquare" },
-      { name: "Jira", icon: "KanbanSquare" },
+      { name: "Microsoft 365", icon: "Briefcase" },
+      { name: "Meta for Business", icon: "Megaphone" },
+      { name: "Moodle", icon: "GraduationCap" },
+      { name: "DBeaver", icon: "Database" },
+      { name: "Visual Studio", icon: "Code2" },
+      { name: "Android Studio", icon: "Smartphone" },
     ],
   },
 ];
 
 export const projects: Project[] = [
   {
-    id: "project-1",
-    title: "Acme Insights Dashboard",
-    role: "Lead Dev",
-    outcome: "Cut weekly reporting time by 60% for 200+ daily users.",
-    description:
-      "Real-time analytics dashboard for a B2B SaaS — from schema design to the React frontend. Built a custom DSL so PMs could ship new widgets without a redeploy.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "Redis"],
-    links: {
-      live: "#",
-      repo: "#",
-      caseStudy: "#",
-    },
-    featured: true,
-  },
-  {
-    id: "project-2",
-    title: "Ops Console for Logistics",
+    id: "bunyan-qa",
+    title: "Bunyan.qa",
     role: "Tech PM",
-    outcome: "Coordinated a 4-person team to ship v1 in 11 weeks, on time.",
+    outcome:
+      "Grew a B2B real-estate portal to 200+ active agencies and 5,000+ live listings.",
     description:
-      "Internal tool for a logistics company to track shipments, exceptions, and SLAs. Owned the roadmap, scope, and engineering reviews; led architecture decisions but didn't write every line.",
-    tech: ["React", "Node.js", "PostgreSQL", "Docker"],
-    links: {
-      live: "#",
-      caseStudy: "#",
-    },
+      "Joined as the first engineer and built Bunyan.qa into the platform the business runs on — Laravel + MySQL with a jQuery front end, containerized with Docker, with subscription-based accounts, search, and filtering. Also built a custom ERP on the same stack to replace an off-the-shelf tool.",
+    tech: ["Laravel", "MySQL", "Docker", "jQuery", "Azure"],
+    links: { live: "#", repo: "#", caseStudy: "#" },
     featured: true,
   },
   {
-    id: "project-3",
-    title: "Open Source CLI",
-    role: "Solo",
-    outcome: "1.2k GitHub stars, used by teams at two YC startups.",
+    id: "wwf-funds-workflow",
+    title: "WWF Funds Request Workflow",
+    role: "Lead Dev",
+    outcome:
+      "Cut request turnaround from days to hours by replacing a paper approval process.",
     description:
-      "A small CLI that scaffolds monorepos with sensible defaults. Started as a side project, grew into something other people use daily. Pure TypeScript, zero deps.",
-    tech: ["TypeScript", "Node.js", "Commander"],
-    links: {
-      repo: "#",
-    },
+      "Role-based funds request workflow for the WWF foundation, built in Laravel with full audit trail and an integrated invoicing module. Shipped a Flutter companion app for card-based expense capture in the field.",
+    tech: ["Laravel", "Flutter", "MySQL"],
+    links: { live: "#", caseStudy: "#" },
+    featured: true,
+  },
+  {
+    id: "ncsc-archive",
+    title: "NCSC Document Archive",
+    role: "Lead Dev",
+    outcome:
+      "Indexed 20,000+ court case files into a searchable, role-based repository.",
+    description:
+      "Document archive management system for Tunisia's National Center of State Courts, built in CodeIgniter with structured metadata, full-text search, and access controls.",
+    tech: ["CodeIgniter", "PHP", "MySQL"],
+    links: { caseStudy: "#" },
+    featured: true,
+  },
+  {
+    id: "etic-moodle",
+    title: "ETIC Moodle Learning Platform",
+    role: "Lead Dev",
+    outcome:
+      "Moved 500+ students and 30+ training programs fully online with self-hosted Moodle.",
+    description:
+      "Deployed and administered a self-hosted Moodle platform on cPanel, with course structures, enrollment automation, certification modules, and role-based access that let instructors publish and track progress without IT support.",
+    tech: ["Moodle", "cPanel", "PHP", "WordPress"],
+    links: { live: "#" },
     featured: true,
   },
 ];
 
 export const experience: ExperienceEntry[] = [
   {
-    id: "exp-1",
-    role: "Senior Full-Stack Developer · Tech Lead",
-    company: "Independent / Contract",
-    start: "2024-01",
-    end: null,
-    location: "Remote",
+    id: "etic",
+    role: "IT Manager & Software Engineer",
+    company: "ETIC Managerial Training Center",
+    start: "2022-02",
+    end: "2025-02",
+    location: "Doha, Qatar",
     bullets: [
-      "Shipped two B2B SaaS products from kickoff to GA in 14 and 18 weeks.",
-      "Lead a small distributed team of 2 devs + 1 designer across timezones.",
+      "Deployed a self-hosted Moodle platform for 500+ students and 30+ training programs, with enrollment automation, certification modules, and role-based access.",
+      "Rebuilt the corporate website and delivered several client sites on WordPress, wiring payment gateways, booking, and CRM through REST APIs and custom jQuery.",
+      "Hired and led the IT team, managed digital marketing with Meta for Business, and automated internal workflows (reporting, notifications, document generation) on Microsoft 365.",
     ],
   },
   {
-    id: "exp-2",
-    role: "Project Manager · Full-Stack Developer",
-    company: "Northstar Digital",
-    start: "2021-06",
-    end: "2023-12",
-    location: "Tunisia (Hybrid)",
+    id: "bunyan",
+    role: "Software Engineer & Project Manager",
+    company: "Bunyan Marketing",
+    start: "2021-02",
+    end: "2022-06",
+    location: "Doha, Qatar",
     bullets: [
-      "Owned delivery for a 5-person squad building a customer portal; 96% on-time sprint rate.",
-      "Designed and shipped the auth + billing surfaces, handling 50k+ monthly active users.",
+      "Joined as the first engineer and built Bunyan.qa into a B2B portal serving 200+ agencies and 5,000+ property listings, plus a custom ERP on Laravel + MySQL + Docker.",
+      "Shipped the cross-platform Bunyan mobile app in Flutter for iOS and Android, alongside companion shop and salon management modules.",
+      "Hired and led a 3-person IT team and owned all production infrastructure across cPanel and Microsoft Azure.",
     ],
   },
   {
-    id: "exp-3",
+    id: "digital-bundle",
     role: "Full-Stack Developer",
-    company: "Brightline Studio",
-    start: "2019-09",
-    end: "2021-05",
+    company: "Digital Bundle",
+    start: "2019-01",
+    end: "2020-12",
     location: "Tunisia",
     bullets: [
-      "Built marketing sites and small web apps for 12+ clients across retail, education, and finance.",
-      "Introduced TypeScript and automated testing to a team that had neither before.",
+      "Led a 3-developer team delivering custom applications for clients in finance, the public sector, and retail.",
+      "Built the WWF funds request workflow in Laravel with role-based states, audit trail, invoicing, and a Flutter companion app for card-based expense capture.",
+      "Delivered a CodeIgniter document archive for Tunisia's NCSC, indexing 20,000+ case files with structured metadata and access controls.",
+    ],
+  },
+  {
+    id: "ultimate-services",
+    role: "Full-Stack Developer",
+    company: "Ultimate Services",
+    start: "2016-07",
+    end: "2018-07",
+    location: "Tunisia",
+    bullets: [
+      "Built an inventory and ERP desktop system in WinDev + HFSQL for a fabric wholesaler, managing 3,000+ products across stock movements, supplier orders, and invoicing.",
+      "Developed a CodeIgniter logistics and delivery web app modelled on Aramex, covering intake, multi-stage approval, driver assignment, and printable dispatch orders.",
+      "Shipped desktop salon appointment and e-commerce apps, and maintained a US client's WordPress site for a year with on-page SEO improvements.",
     ],
   },
 ];
