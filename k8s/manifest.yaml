@@ -25,7 +25,7 @@ spec:
         - name: ghcr
       containers:
         - name: app
-          image: ghcr.io/ayyans/cv:IMAGE_TAG_PLACEHOLDER
+          image: ghcr.io/ayyans/cv:cf5aeff
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
