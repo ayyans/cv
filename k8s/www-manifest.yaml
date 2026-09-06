@@ -1,6 +1,6 @@
 ---
-# www.yeddes.com — uses the WILDCARD section, not the apex section.
-# Same backend as the apex route; only the gateway listener differs.
+# www.yeddes.com -> yeddes.com (301, both HTTPS, preserves path + query).
+# Uses the wildcard HTTP section. No Service backend — pure redirect.
 
 apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
@@ -17,10 +17,8 @@ spec:
   hostnames:
     - www.yeddes.com
   rules:
-    - matches:
-        - path:
-            type: PathPrefix
-            value: /
-      backendRefs:
-        - name: yeddes-com
-          port: 80
+    - filters:
+        - type: RequestRedirect
+          requestRedirect:
+            hostname: yeddes.com
+            statusCode: 301
