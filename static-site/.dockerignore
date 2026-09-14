@@ -1,0 +1,16 @@
+# Build artifacts
+server
+*.exe
+*.test
+*.out
+
+# Local caches
+.cache
+
+# Docs / meta (not needed in the image)
+README.md
+.env.example
+
+# Git
+.git
+.gitignore

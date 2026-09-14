@@ -50,3 +50,8 @@ Thumbs.db
 # local build/dev logs
 *.log
 start.log.err
+
+# local go build artifacts (static-site/)
+static-site/server
+static-site/server.exe
+static-site/static-site
