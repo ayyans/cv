@@ -1,0 +1,312 @@
+# =============================================================================
+# CV — multi-language data for portfolio i18n
+# -----------------------------------------------------------------------------
+# Single source of truth for the resume content in every locale the portfolio
+# supports. Each entry under `locales.<lang>` is a complete translation — no
+# inheritance between locales, so you can reorder or rewrite any locale
+# independently.
+#
+# To add a new locale:
+#   1. Copy the `en` block, translate every value, save under a new locale code
+#      (e.g. `ar`, `de`, `es`).
+#   2. Register the locale in any front-end locale switcher / Next.js i18n
+#      routing / Go loader.
+#
+# To consume this file:
+#   - Next.js: import yaml and pick `locales[router.locale]` (with `js-yaml`)
+#   - Go: load at startup with gopkg.in/yaml.v3, expose via /api/cv?lang=...
+#   - Static generator: read both blocks, emit one HTML per locale
+#
+# Date format: `start`/`end` use ISO YYYY-MM for sortable ordering.
+# `end: null` means "current / ongoing".
+# =============================================================================
+
+defaultLocale: en
+supportedLocales: [en, fr]
+
+locales:
+
+  # ---------------------------------------------------------------------------
+  # English (default)
+  # ---------------------------------------------------------------------------
+  en:
+    personal:
+      name: Mohamed Ayman Yeddes
+      title: "Full-Stack Developer · IT Project Manager"
+      contact:
+        phone: "+216 93 600 840"
+        email: Mohamed.ayman.yeddes@gmail.com
+        linkedin: linkedin.com/in/mohamed-ayman-yeddes
+        location: "Madinat Khalifa South, Doha, Qatar"
+
+    profile: >-
+      Full-stack engineer with more than nine years of experience building
+      production business software, including ERP, invoicing, POS, e-commerce
+      and B2B platforms, from the database layer through to deployment. On two
+      occasions joined a company as its first engineer, established the IT
+      function, hired and led the team, and replaced manual, paper based
+      operations with automated systems. Works closely with clients to scope
+      requirements and delivers the code that puts each solution into
+      production, across web, desktop and mobile.
+
+    skills:
+      languagesFrameworks: "PHP, Laravel, CodeIgniter, C#, Java, Dart, JavaScript, jQuery, SQL, WLanguage, HTML, CSS"
+      webMobileCms: "WordPress, WooCommerce, PrestaShop, Drupal, Shopify, Flutter"
+      databases: "SQL Server, MySQL, HFSQL"
+      devopsTools: "Docker, Git, cPanel, Microsoft Azure, Visual Studio, Android Studio, DBeaver"
+      platforms: "WinDev, WinDev Mobile, Moodle, Microsoft 365, Meta for Business"
+
+    coreExpertise:
+      - "ERP development and integration"
+      - "POS and stock management systems"
+      - "E-commerce and B2B portals"
+      - "Invoicing and billing solutions"
+      - "Workflow automation"
+      - "Project management and team leadership"
+
+    experience:
+      - id: freelance
+        role: "Freelance AI-Augmented Full-Stack Engineer & Project Manager"
+        company: "Independent Consultant"
+        start: "2025-02"
+        end: null
+        location: null
+        summary: "A freelance practice covering web apps, e-commerce, dashboards, and AI-augmented delivery for international clients."
+        tech: [Next.js, WordPress, Flutter, Rust, "Claude Code", Cursor]
+        bullets:
+          - "Built production Next.js web applications with SSR, ISR, and Stripe billing for B2B clients"
+          - "Delivered WooCommerce and headless WordPress e-commerce stores with multi-currency and SEO landing pages"
+          - "Built overseas education center website on WordPress with multilingual content and CRM lead capture"
+          - "Designed analytics dashboards with Rust ingestion services and Next.js frontends for executive KPI reporting"
+          - "Delivered Flutter booking app and Next.js admin web app for cleaning-services company, end-to-end"
+          - "Planned and ran Meta paid campaigns for SMB clients with creative and KPI reporting"
+          - "Used Claude Code, Cursor, and local LLMs in delivery workflow, cutting project turnaround ~40%"
+          - "Built AI features for clients: chatbots, document summarization, semantic search, content automation"
+        imageCategory: "Independent practice"
+
+      - id: etic
+        role: "IT Manager & Software Engineer"
+        company: "ETIC Managerial Training Center"
+        start: "2022-02"
+        end: "2025-02"
+        location: "Doha, Qatar"
+        summary: "A self-hosted learning platform for 500+ students, connected workflows, and a rebuilt online presence."
+        tech: [Moodle, WordPress, "Microsoft 365"]
+        bullets:
+          - "Deployed and administered a self-hosted Moodle learning platform on cPanel, moving 500+ students and 30+ training programs fully online, with course structures, enrollment automation, certification modules and role based access that let instructors publish and track progress without IT support."
+          - "Rebuilt the corporate website and delivered several client sites on WordPress, connecting payment gateways, booking systems and CRM tools through REST APIs and custom jQuery, and hardening each site for performance and security."
+          - "Designed and automated recurring internal workflows such as reporting, enrollment notifications and document generation using custom scripts built on Microsoft 365, saving several hours of manual work every week."
+          - "Managed the digital marketing function, running Meta for Business ad campaigns, producing content and analysing performance to shape the strategy that grew the center's reach and inbound enrollment."
+        imageCategory: "Training & education"
+
+      - id: bunyan
+        role: "Software Engineer & Project Manager"
+        company: "Bunyan Marketing"
+        start: "2021-02"
+        end: "2022-06"
+        location: "Doha, Qatar"
+        summary: "Custom B2B portal, mobile app, and on-call infra for a real-estate advertising business that scaled to 200+ agencies."
+        tech: [Laravel, MySQL, Flutter]
+        bullets:
+          - "Joined as the first engineer and built Bunyan.qa from the ground up into the live B2B real estate advertising portal the business runs on, a Laravel and MySQL application with a jQuery front end, containerized with Docker, which grew to 200+ active agencies and 5,000+ live property listings with search, filtering and subscription based accounts."
+          - "Designed and built a custom ERP on the same stack to replace a rigid off the shelf tool, bringing sales, inventory and invoicing into one interface and reducing manual reconciliation and order processing."
+          - "Developed and released the cross platform Bunyan mobile app in Flutter from a single codebase for iOS and Android, together with companion shop and salon management modules."
+          - "Hired and led a three person IT team while owning the infrastructure, provisioning and maintaining all production servers, mail and hosting across cPanel and Microsoft Azure, and setting the technical direction for the team."
+        imageCategory: "B2B portal"
+
+      - id: digital-bundle
+        role: "Full-Stack Developer"
+        company: "Digital Bundle"
+        start: "2019-01"
+        end: "2020-12"
+        location: "Tunisia"
+        summary: "Custom workflow and document-management applications, with hands-on leadership of a three-developer team."
+        tech: [Laravel, WordPress, Flutter]
+        bullets:
+          - "Led a three developer team delivering custom applications for clients in finance, the public sector and retail, owning the architecture and client scoping while mentoring the team and supervising interns."
+          - "Built a funds request workflow application for the WWF foundation in Laravel, replacing a paper based approval process with role based states, a full audit trail, an integrated invoicing module and a Flutter companion app for card based expense capture, cutting request turnaround from days to hours."
+          - "Delivered a document archive management system for Tunisia's National Center for State Courts (NCSC) in CodeIgniter, indexing 20,000+ case files into a searchable repository with structured metadata and access controls."
+          - "Engineered a restaurant POS system in WinDev and WLanguage on HFSQL, covering the full order lifecycle from table order through kitchen ticketing to delivery, with real time stock deduction and daily sales reporting."
+          - "Built a payroll management system handling salaries, deductions and payslip generation for 150+ employees, and maintained e-commerce stores on PrestaShop and WooCommerce."
+        imageCategory: "Custom applications"
+
+      - id: ultimate-services
+        role: "Full-Stack Developer"
+        company: "Ultimate Services"
+        start: "2016-07"
+        end: "2018-07"
+        location: "Tunisia"
+        summary: "Inventory and ERP systems, logistics apps, and salon management — built and shipped in WinDev and CodeIgniter."
+        tech: [WinDev, WLanguage, HFSQL, CodeIgniter, WordPress]
+        bullets:
+          - "Designed and built an inventory and ERP desktop system in WinDev and WLanguage on HFSQL for a fabric wholesale distributor, managing 3,000+ product references with stock movements, supplier orders and invoicing, which ran the client's daily operations."
+          - "Developed a logistics and delivery management web application in CodeIgniter based on the Aramex model, covering order intake, multi stage approval routing, driver assignment and printable dispatch orders across the client's fleet."
+          - "Built a desktop salon appointments application in WinDev with integrated invoicing and stock modules, giving the client a single tool for bookings, walk ins and product sales."
+          - "Delivered a custom CodeIgniter e-commerce application and maintained a US client's WordPress site for a year, restructuring templates and on page SEO to improve load times and search rankings."
+        imageCategory: "Wholesale & logistics"
+
+    education:
+      - degree: "B.Sc. Information Technology applied to Management (E-commerce)"
+        school: "FSEG"
+        location: "Tunisia"
+        start: "2011"
+        end: "2015"
+      - degree: "Diploma in Information Technology"
+        school: "Korba High School"
+        location: "Tunisia"
+        start: "2009"
+        end: "2010"
+
+    languages:
+      - code: AR
+        name: Arabic
+        level: Native
+      - code: EN
+        name: English
+        level: Fluent
+      - code: FR
+        name: French
+        level: Intermediate
+
+  # ---------------------------------------------------------------------------
+  # Français
+  # ---------------------------------------------------------------------------
+  fr:
+    personal:
+      name: Mohamed Ayman Yeddes
+      title: "Développeur Full-Stack · Chef de Projet IT"
+      contact:
+        phone: "+216 93 600 840"
+        email: Mohamed.ayman.yeddes@gmail.com
+        linkedin: linkedin.com/in/mohamed-ayman-yeddes
+        location: "Madinat Khalifa South, Doha, Qatar"
+
+    profile: >-
+      Ingénieur full-stack avec plus de neuf ans d'expérience dans le
+      développement de logiciels métier en production, notamment ERP,
+      facturation, POS, e-commerce et plateformes B2B, de la couche base de
+      données jusqu'au déploiement. À deux reprises, a rejoint une entreprise
+      en tant que premier ingénieur, mis en place la fonction IT, recruté et
+      encadré l'équipe, et remplacé les opérations manuelles sur papier par
+      des systèmes automatisés. Travaille en étroite collaboration avec les
+      clients pour cadrer les besoins et livre le code qui met chaque solution
+      en production, sur web, desktop et mobile.
+
+    skills:
+      languagesFrameworks: "PHP, Laravel, CodeIgniter, C#, Java, Dart, JavaScript, jQuery, SQL, WLanguage, HTML, CSS"
+      webMobileCms: "WordPress, WooCommerce, PrestaShop, Drupal, Shopify, Flutter"
+      databases: "SQL Server, MySQL, HFSQL"
+      devopsTools: "Docker, Git, cPanel, Microsoft Azure, Visual Studio, Android Studio, DBeaver"
+      platforms: "WinDev, WinDev Mobile, Moodle, Microsoft 365, Meta for Business"
+
+    coreExpertise:
+      - "Développement et intégration d'ERP"
+      - "Systèmes de point de vente (POS) et gestion de stock"
+      - "Portails e-commerce et B2B"
+      - "Solutions de facturation"
+      - "Automatisation des processus"
+      - "Gestion de projet et leadership d'équipe"
+
+    experience:
+      - id: freelance
+        role: "Ingénieur Full-Stack Augmenté par l'IA & Chef de Projet · Freelance"
+        company: "Consultant Indépendant"
+        start: "2025-02"
+        end: null
+        location: null
+        summary: "Pratique freelance couvrant applications web, e-commerce, tableaux de bord et delivery augmentée par l'IA pour des clients internationaux."
+        tech: [Next.js, WordPress, Flutter, Rust, "Claude Code", Cursor]
+        bullets:
+          - "Conçu des applications Next.js en production avec SSR, ISR et facturation Stripe pour clients B2B"
+          - "Livré des boutiques e-commerce WooCommerce et WordPress headless avec multi-devises et pages d'atterrissage SEO"
+          - "Conçu un site multilingue pour un centre de formation à l'étranger sur WordPress avec capture de leads CRM"
+          - "Conçu des tableaux de bord analytiques avec ingestion Rust et frontends Next.js pour reporting KPI exécutif"
+          - "Livré app de réservation Flutter et admin web Next.js pour une entreprise de nettoyage, de bout en bout"
+          - "Planifié et piloté des campagnes sponsorisées Meta pour clients PME avec créatifs et reporting KPI"
+          - "Utilisé Claude Code, Cursor et LLMs locaux dans le workflow de livraison, réduisant les délais d'environ 40 %"
+          - "Conçu des fonctionnalités IA pour les clients : chatbots, résumé de documents, recherche sémantique, automatisation de contenu"
+        imageCategory: "Pratique indépendante"
+
+      - id: etic
+        role: "Responsable IT et Ingénieur Logiciel"
+        company: "ETIC Managerial Training Center"
+        start: "2022-02"
+        end: "2025-02"
+        location: "Doha, Qatar"
+        summary: "Plateforme d'apprentissage auto-hébergée pour 500+ étudiants, workflows connectés et présence en ligne refaite à neuf."
+        tech: [Moodle, WordPress, "Microsoft 365"]
+        bullets:
+          - "Déployé et administré une plateforme d'apprentissage Moodle auto-hébergée sur cPanel, migrant 500+ étudiants et 30+ programmes de formation entièrement en ligne, avec structures de cours, automatisation des inscriptions, modules de certification et accès basé sur les rôles permettant aux formateurs de publier et suivre la progression sans support IT."
+          - "Refait le site corporate et livré plusieurs sites clients sur WordPress, connectant passerelles de paiement, systèmes de réservation et outils CRM via des API REST et du jQuery sur mesure, et durci chaque site en performance et sécurité."
+          - "Conçu et automatisé des workflows internes récurrents (reporting, notifications d'inscription, génération de documents) via des scripts sur mesure bâtis sur Microsoft 365, économisant plusieurs heures de travail manuel par semaine."
+          - "Piloté la fonction marketing digital : campagnes Meta for Business, production de contenus et analyse de performance pour orienter la stratégie qui a accru la portée du centre et les inscriptions entrantes."
+        imageCategory: "Formation & éducation"
+
+      - id: bunyan
+        role: "Ingénieur Logiciel et Chef de Projet"
+        company: "Bunyan Marketing"
+        start: "2021-02"
+        end: "2022-06"
+        location: "Doha, Qatar"
+        summary: "Portail B2B sur mesure, application mobile et infra on-call pour une activité d'annonces immobilières passée à 200+ agences."
+        tech: [Laravel, MySQL, Flutter]
+        bullets:
+          - "Premier ingénieur recruté, a bâti Bunyan.qa de zéro jusqu'au portail B2B d'annonces immobilières en production de l'entreprise — application Laravel et MySQL avec front-end jQuery, conteneurisée avec Docker, qui a grandi jusqu'à 200+ agences actives et 5 000+ annonces avec recherche, filtres et comptes par abonnement."
+          - "Conçu et bâti un ERP sur mesure sur la même stack pour remplacer un outil rigide du commerce, réunissant ventes, stock et facturation dans une seule interface et réduisant la réconciliation manuelle et le traitement des commandes."
+          - "Développé et publié Bunyan mobile app cross-platform en Flutter depuis une base de code unique pour iOS et Android, ainsi que des modules compagnons de gestion boutique et salon."
+          - "Recruté et encadré une équipe IT de trois personnes, tout en pilotant l'infrastructure : provisionnement et maintenance de tous les serveurs de production, messagerie et hébergement sur cPanel et Microsoft Azure, et définition de la direction technique de l'équipe."
+        imageCategory: "Portail B2B"
+
+      - id: digital-bundle
+        role: "Développeur Full-Stack"
+        company: "Digital Bundle"
+        start: "2019-01"
+        end: "2020-12"
+        location: "Tunisie"
+        summary: "Applications sur mesure de workflow et gestion documentaire, avec leadership terrain d'une équipe de trois développeurs."
+        tech: [Laravel, WordPress, Flutter]
+        bullets:
+          - "Dirigé une équipe de trois développeurs livrant des applications sur mesure pour des clients en finance, secteur public et retail, en étant propriétaire de l'architecture et le cadrage client tout en mentorant l'équipe et en supervisant des stagiaires."
+          - "Bâti une application de workflow de demandes de fonds pour la fondation WWF en Laravel, remplaçant un processus d'approbation papier par des statuts basés sur les rôles, une piste d'audit complète, un module de facturation intégré et une app compagnon Flutter pour la capture des dépenses par carte, ramenant le délai de traitement de plusieurs jours à quelques heures."
+          - "Livré un système d'archivage documentaire pour le Centre National des Cours d'État (CNCE) de Tunisie en CodeIgniter, indexant 20 000+ dossiers dans un dépôt recherchable, métadonnées structurées et contrôles d'accès."
+          - "Ingénierie d'un système POS de restaurant en WinDev et WLanguage sur HFSQL, couvrant tout le cycle de commande : de la prise en salle au ticket cuisine jusqu'à la livraison, avec déduction de stock en temps réel et reporting de ventes quotidien."
+          - "Bâti un système de paie gérant salaires, déductions et génération de bulletins pour 150+ employés, et maintenu des boutiques e-commerce sur PrestaShop et WooCommerce."
+        imageCategory: "Applications sur mesure"
+
+      - id: ultimate-services
+        role: "Développeur Full-Stack"
+        company: "Ultimate Services"
+        start: "2016-07"
+        end: "2018-07"
+        location: "Tunisie"
+        summary: "Systèmes de stock et ERP, applications logistiques et gestion de salon — bâtis et livrés en WinDev et CodeIgniter."
+        tech: [WinDev, WLanguage, HFSQL, CodeIgniter, WordPress]
+        bullets:
+          - "Conçu et bâti un système desktop de gestion de stock et ERP en WinDev et WLanguage sur HFSQL pour un grossiste textile, gérant 3 000+ références produit avec mouvements de stock, commandes fournisseurs et facturation, qui faisait tourner les opérations quotidiennes du client."
+          - "Développé une application web de logistique et gestion de livraison en CodeIgniter basée sur le modèle Aramex, couvrant prise de commande, circuit d'approbation multi-étapes, affectation de chauffeurs et bons de répartition imprimables sur la flotte du client."
+          - "Bâti une application desktop de prise de rendez-vous salon en WinDev avec modules intégrés de facturation et de stock, offrant au client un outil unique pour réservations, passages et ventes de produits."
+          - "Livré une application e-commerce sur mesure en CodeIgniter et maintenu pendant un an le site WordPress d'un client américain, restructurant templates et SEO on-page pour améliorer temps de chargement et classement search."
+        imageCategory: "Grossiste & logistique"
+
+    education:
+      - degree: "B.Sc. en Informatique appliquée à la Gestion (E-commerce)"
+        school: "FSEG"
+        location: "Tunisie"
+        start: "2011"
+        end: "2015"
+      - degree: "Diplôme en Informatique"
+        school: "Lycée de Korba"
+        location: "Tunisie"
+        start: "2009"
+        end: "2010"
+
+    languages:
+      - code: AR
+        name: Arabe
+        level: "Langue Maternelle"
+      - code: EN
+        name: Anglais
+        level: Courant
+      - code: FR
+        name: Français
+        level: Intermédiaire
