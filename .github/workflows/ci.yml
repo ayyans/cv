@@ -1,0 +1,134 @@
+name: CI
+
+# Two images come out of this repository:
+#
+#   1. the Next.js app        -> ghcr.io/ayyans/cv:next-<sha>   (not deployed)
+#   2. the Go static site     -> ghcr.io/ayyans/cv:<sha>        (this is what
+#                                  yeddes.com actually runs)
+#
+# The static site is the deployed artifact, so the commit that built it has
+# to be the commit that is tagged. The bare short-sha tag is what
+# k8s/manifest.yaml points at, and the job below keeps that pointer in sync
+# automatically -- it used to drift, with the manifest naming an image that
+# nothing was running.
+
+on:
+  pull_request:
+    paths:
+      - "src/**"
+      - "static-site/**"
+      - "public/**"
+      - "next.config.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "Dockerfile"
+      - ".github/workflows/ci.yml"
+  push:
+    branches: [main]
+    paths:
+      - "src/**"
+      - "static-site/**"
+      - "public/**"
+      - "next.config.mjs"
+      - "package.json"
+      - "pnpm-lock.yaml"
+      - "Dockerfile"
+      - ".github/workflows/ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE: ghcr.io/ayyans/cv
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      contents: write   # to commit the updated image tag back
+      packages: write   # to push images on main
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          run_install: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      # Cheap but valuable check: if package.json and pnpm-lock.yaml ever
+      # drift apart, the Docker build fails on --frozen-lockfile anyway.
+      # Doing it here fails the PR in seconds instead of after a full image
+      # build. (Type checking is not duplicated here -- `next build` inside
+      # the image already type-checks the app.)
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Compute short SHA
+        id: sha
+        run: echo "short=$(echo ${{ github.sha }} | cut -c1-7)" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        if: github.event_name != 'pull_request'
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      # ---- 1. the Next.js app -------------------------------------------
+      - name: Build and push the Next.js image
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: |
+            ${{ env.IMAGE }}:next-${{ steps.sha.outputs.short }}
+          cache-from: type=gha,scope=next-app
+          cache-to: type=gha,mode=max,scope=next-app
+
+      # ---- 2. the Go static site (the deployed artifact) ----------------
+      - name: Build and push the static-site image
+        uses: docker/build-push-action@v6
+        with:
+          context: static-site
+          file: static-site/Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: |
+            ${{ env.IMAGE }}:${{ steps.sha.outputs.short }}
+          cache-from: type=gha,scope=static-site
+          cache-to: type=gha,mode=max,scope=static-site
+
+      # ---- 3. keep the manifest pointing at the image we just built ----
+      # Only on main, and only when the tag actually changed. The commit
+      # this creates touches k8s/manifest.yaml alone, which is not in the
+      # path filter above -- so it cannot retrigger this workflow.
+      - name: Point k8s/manifest.yaml at the new static-site image
+        if: github.event_name != 'pull_request'
+        env:
+          IMAGE_TAG: ${{ steps.sha.outputs.short }}
+        run: |
+          set -euo pipefail
+          sed -i "s|image: ghcr.io/ayyans/cv:.*|image: ghcr.io/ayyans/cv:${IMAGE_TAG}|" k8s/manifest.yaml
+          if git diff --quiet k8s/manifest.yaml; then
+            echo "manifest already points at ${IMAGE_TAG} - nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41848282+github-actions[bot]@users.noreply.github.com"
+          git add k8s/manifest.yaml
+          git commit -m "chore(deploy): point manifest at cv:${IMAGE_TAG}"
+          git push
