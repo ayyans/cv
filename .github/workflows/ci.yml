@@ -86,7 +86,14 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          # The ghcr.io/ayyans/cv package was created outside a workflow, so it
+          # is not linked to this repository and the default GITHUB_TOKEN is
+          # refused with "permission_denied: read_package". Either connect the
+          # package to this repository (Package settings -> Connect repository),
+          # or set a GHCR_PAT secret with write:packages -- the secret wins.
+          # Until one of the two is done, pull requests still build and verify
+          # the images; only the push to the registry is affected.
+          password: ${{ secrets.GHCR_PAT || github.token }}
 
       # ---- 1. the Next.js app -------------------------------------------
       - name: Build and push the Next.js image
